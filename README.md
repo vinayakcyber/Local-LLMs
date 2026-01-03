@@ -2,6 +2,9 @@
 This repository shares my setup for running a local large language model (LLM) on a Raspberry Pi 5 (8GB RAM) using llama.cpp in a Docker container. It includes building llama.cpp with server support, running the OpenAI-compatible API via llama-server, and a nice ChatGPT-like web interface with Open WebUI.
 Everything is orchestrated with docker-compose for easy startup and management.
 
+<img width="1330" height="700" alt="image" src="https://github.com/user-attachments/assets/3fa7e21e-b6f3-48ae-a382-679770b489cd" />
+
+
 ## Why this setup?
 
 - Fully local and private — no cloud dependency.
@@ -19,11 +22,12 @@ Everything is orchestrated with docker-compose for easy startup and management.
 For good performance on RPi 5:
 
 - gemma2:2b-it-q4_K_M.gguf (~1.5GB) — Fast (~10-15 tokens/s), smart for its size.
-- Ministral-3-3B-Instruct-2512-Q8_0.gguf
-- Alternatives:
+
+#### Alternatives:
 - phi-3.5:mini-instruct Q4 (~2GB) — Excellent reasoning.
 - qwen2.5:3b-instruct Q4 — Very capable.
 - llama3.2:3b-instruct Q4 — Solid all-rounder.
+- Ministral-3-3B-Instruct-2512-Q8_0.gguf (~3.5GB) — kinda Slow (~2.5-5 tokens/s), smart for its size, fairly accurate too.
 
 
 Larger 7B Q4 models run but are slow (~2-5 tokens/s).
