@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  llama-server:
+    build:
+      context: .
+    container_name: llama-webui
+    ports:
+      - "8080:8080"  # Expose the WebUI on host port 8080
+    volumes:
+      - /Models:/models  # Mount your local models folder (place qwen3-4b-q4_0.gguf here)
+    command: >
+      -m /models/Ministral-3-3B-Instruct-2512-Q8_0.gguf
+      --host 0.0.0.0
+      --port 8080
+      --ctx-size 3072
+      --threads 4
+      --n-gpu-layers 0
+      --webui
+    restart: unless-stopped  # Auto-restart on failure
